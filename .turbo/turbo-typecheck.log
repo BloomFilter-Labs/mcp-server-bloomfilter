@@ -1,0 +1,4 @@
+
+> @bloomfilter/mcp-server@0.1.0 typecheck /Users/erons/Documents/personal-projects/TickHQ/BloomFilter/packages/mcp-server
+> tsc --noEmit
+
