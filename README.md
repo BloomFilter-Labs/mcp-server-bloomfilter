@@ -101,7 +101,7 @@ The server authenticates with the Bloomfilter API using SIWE (Sign-In With Ether
 ## Building from Source
 
 ```bash
-git clone https://github.com/TickHQ/mcp-server-bloomfilter.git
+git clone https://github.com/BloomFilter-Labs/mcp-server-bloomfilter.git
 cd mcp-server-bloomfilter
 npm install
 npm run build
