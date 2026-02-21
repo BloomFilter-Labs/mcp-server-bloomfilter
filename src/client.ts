@@ -286,8 +286,52 @@ export function formatToolError(error: unknown, apiUrl?: string): McpToolResult 
     // API error response
     if (error.response?.data) {
       const data = error.response.data as Record<string, unknown>;
-      const code = (data.code as string) ?? `HTTP ${error.response.status}`;
-      const message = (data.message as string) ?? (data.error as string) ?? "Unknown error";
+      const status = error.response.status;
+
+      // x402 payment responses — two cases:
+      // 1. Initial 402 with accepts array (no x402 wrapper, or wrapper disabled)
+      // 2. Retry 402 after x402 wrapper tried to pay but settlement failed
+      if (status === 402) {
+        if (data.accepts) {
+          // Case 1: Initial 402 with payment requirements
+          const accepts = data.accepts as Array<Record<string, unknown>>;
+          const amount = accepts[0]?.price ?? accepts[0]?.amount;
+          const description = (data.resource as Record<string, unknown> | undefined)?.description;
+          const detail = description
+            ? `${description} requires payment of ${amount} USDC`
+            : `Payment of ${amount} USDC required`;
+          return {
+            content: [
+              {
+                type: "text",
+                text: `Payment required: ${detail}. Ensure your wallet has sufficient USDC balance.`,
+              },
+            ],
+            isError: true,
+          };
+        }
+        // Case 2: Payment was attempted but failed (insufficient balance, settlement error, etc.)
+        const serverMsg =
+          (data.message as string) ?? (data.error as string) ?? (data.detail as string);
+        const detail = serverMsg ?? "payment was attempted but could not be settled on-chain";
+        return {
+          content: [
+            {
+              type: "text",
+              text: `Payment failed: ${detail}. Check that your wallet has sufficient USDC balance on Base.`,
+            },
+          ],
+          isError: true,
+        };
+      }
+
+      const code = (data.code as string) ?? `HTTP ${status}`;
+      const message =
+        (data.message as string) ??
+        (data.error as string) ??
+        (data.detail as string) ??
+        error.response.statusText ??
+        `Request failed with status ${status}`;
       return {
         content: [{ type: "text", text: `Error [${code}]: ${message}` }],
         isError: true,

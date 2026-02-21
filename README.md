@@ -36,15 +36,15 @@ Add this JSON to your MCP client's config file:
 
 ### Config file location by client
 
-| Client | Config file |
-| --- | --- |
-| [Claude Desktop](https://claude.ai/download) | `claude_desktop_config.json` |
-| [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) | `~/.claude/settings.json` |
-| [Cursor](https://cursor.com) | `.cursor/mcp.json` |
-| [Windsurf](https://windsurf.com) | `~/.codeium/windsurf/mcp_config.json` |
-| [VS Code + Copilot](https://code.visualstudio.com/docs/copilot/customization/mcp-servers) | `.vscode/mcp.json` |
-| [Cline](https://docs.cline.bot/mcp/configuring-mcp-servers) | Via Cline MCP settings UI |
-| [JetBrains IDEs](https://www.jetbrains.com/help/ai-assistant/mcp.html) | Settings > Tools > AI Assistant > MCP |
+| Client                                                                                    | Config file                           |
+| ----------------------------------------------------------------------------------------- | ------------------------------------- |
+| [Claude Desktop](https://claude.ai/download)                                              | `claude_desktop_config.json`          |
+| [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)                    | `~/.claude/settings.json`             |
+| [Cursor](https://cursor.com)                                                              | `.cursor/mcp.json`                    |
+| [Windsurf](https://windsurf.com)                                                          | `~/.codeium/windsurf/mcp_config.json` |
+| [VS Code + Copilot](https://code.visualstudio.com/docs/copilot/customization/mcp-servers) | `.vscode/mcp.json`                    |
+| [Cline](https://docs.cline.bot/mcp/configuring-mcp-servers)                               | Via Cline MCP settings UI             |
+| [JetBrains IDEs](https://www.jetbrains.com/help/ai-assistant/mcp.html)                    | Settings > Tools > AI Assistant > MCP |
 
 Any MCP-compatible client that supports stdio servers will work.
 
