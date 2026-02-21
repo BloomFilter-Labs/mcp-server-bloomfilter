@@ -137,7 +137,7 @@ export async function updateDnsRecord(
     if (params.ttl != null) body.ttl = params.ttl;
     if (params.distance != null) body.distance = params.distance;
 
-    const { data } = await client.http.put<DnsRecordResponse>(
+    await client.http.put(
       `/dns/${encodeURIComponent(params.domain)}/${encodeURIComponent(params.record_id)}`,
       body,
       { headers: client.getAuthHeaders() },
@@ -145,12 +145,10 @@ export async function updateDnsRecord(
 
     const text = [
       `DNS record updated for ${params.domain}:`,
-      `  Record ID: ${data.recordId}`,
-      `  Type: ${data.type}`,
-      `  Host: ${data.host}`,
-      `  Value: ${data.value}`,
-      `  TTL: ${data.ttl}`,
-      data.distance != null ? `  Priority: ${data.distance}` : null,
+      `  Host: ${params.host}`,
+      `  Value: ${params.value}`,
+      params.ttl != null ? `  TTL: ${params.ttl}` : null,
+      params.distance != null ? `  Priority: ${params.distance}` : null,
     ]
       .filter(Boolean)
       .join("\n");
