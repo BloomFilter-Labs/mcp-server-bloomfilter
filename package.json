@@ -5,6 +5,7 @@
   "type": "module",
   "private": false,
   "license": "MIT",
+  "mcpName": "io.github.Eronmmer/bloomfilter",
   "bin": {
     "bloomfilter-mcp": "./dist/index.js"
   },
