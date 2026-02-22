@@ -1,0 +1,43 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Eronmmer/bloomfilter",
+  "description": "Service that lets AI Agents search, register, and configure domains",
+  "repository": {
+    "url": "https://github.com/BloomFilter-Labs/mcp-server-bloomfilter",
+    "source": "github"
+  },
+  "version": "0.1.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@bloomfilter/mcp-server",
+      "version": "0.1.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "BLOOMFILTER_PRIVATE_KEY",
+          "description": "Hex-encoded private key for a wallet funded with USDC on Base to pay for domains and DNS operations",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true
+        },
+        {
+          "name": "BLOOMFILTER_API_URL",
+          "description": "Bloomfilter API base URL (defaults to https://api.bloomfilter.xyz)",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": false
+        },
+        {
+          "name": "BLOOMFILTER_NETWORK",
+          "description": "CAIP-2 network identifier (defaults to eip155:8453 / Base mainnet)",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": false
+        }
+      ]
+    }
+  ]
+}
