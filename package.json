@@ -1,6 +1,6 @@
 {
   "name": "@bloomfilter/mcp-server",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server for Bloomfilter domain registration API — register ICANN domains with AI agents",
   "type": "module",
   "private": false,
