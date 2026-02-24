@@ -161,7 +161,9 @@ async function main(): Promise<void> {
   // 7. add_dns_record
   server.tool(
     "add_dns_record",
-    "Add a DNS record to a domain you own. Costs $0.10 USDC per record.",
+    "Add a DNS record to a domain you own. Costs $0.10 USDC per record. " +
+      "IMPORTANT: Always add DNS records one at a time (sequentially, not in parallel). " +
+      "After registering a new domain, wait at least 30 seconds before adding DNS records.",
     {
       domain: z.string().describe("Domain to add the record to (e.g., 'myproject.com')"),
       type: z
@@ -189,7 +191,8 @@ async function main(): Promise<void> {
   // 8. update_dns_record
   server.tool(
     "update_dns_record",
-    "Update an existing DNS record. Costs $0.10 USDC. Use list_dns_records to find the record_id.",
+    "Update an existing DNS record. Costs $0.10 USDC. Use list_dns_records to find the record_id. " +
+      "IMPORTANT: Always update DNS records one at a time (sequentially, not in parallel).",
     {
       domain: z.string().describe("Domain the record belongs to (e.g., 'myproject.com')"),
       record_id: z.string().describe("ID of the DNS record to update (from list_dns_records)"),
@@ -210,7 +213,8 @@ async function main(): Promise<void> {
   // 9. delete_dns_record
   server.tool(
     "delete_dns_record",
-    "Delete a DNS record from a domain you own. Costs $0.10 USDC.",
+    "Delete a DNS record from a domain you own. Costs $0.10 USDC. " +
+      "IMPORTANT: Always delete DNS records one at a time (sequentially, not in parallel).",
     {
       domain: z.string().describe("Domain the record belongs to (e.g., 'myproject.com')"),
       record_id: z.string().describe("ID of the DNS record to delete (from list_dns_records)"),
