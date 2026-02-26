@@ -1,8 +1,12 @@
 # @bloomfilter/mcp-server
 
-MCP server for [Bloomfilter](https://bloomfilter.xyz), register ICANN domain names and manage DNS records from AI agents.
+<a href="https://glama.ai/mcp/servers/@BloomFilter-Labs/bloomfilter">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@BloomFilter-Labs/bloomfilter/badge" />
+</a>
 
-Bloomfilter is a domain registration API that uses [x402](https://www.x402.org/) for payments. Point your AI agent at the Bloomfilter API, give it a wallet with some USDC, and it can autonomously search, register, and configure domains.
+MCP server for [Bloomfilter](https://bloomfilter.xyz), search & register domain names and manage DNS records from AI agents.
+
+Bloomfilter is a domain registration and configuration API that uses [x402](https://www.x402.org/) for payments. Point your AI agent at the Bloomfilter API, give it a wallet with some USDC, and it can autonomously search, register, and configure domains.
 
 No login, no credit card, no dashboard. Just HTTP requests and a crypto wallet.
 
@@ -22,15 +26,15 @@ Add this JSON to your MCP client's config file:
 
 ```json
 {
-  "mcpServers": {
-    "bloomfilter": {
-      "command": "npx",
-      "args": ["-y", "@bloomfilter/mcp-server"],
-      "env": {
-        "BLOOMFILTER_PRIVATE_KEY": "0x..."
-      }
-    }
-  }
+	"mcpServers": {
+		"bloomfilter": {
+			"command": "npx",
+			"args": ["-y", "@bloomfilter/mcp-server"],
+			"env": {
+				"BLOOMFILTER_PRIVATE_KEY": "0x..."
+			}
+		}
+	}
 }
 ```
 
