@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/bloomfilter-labs-mcp-server-bloomfilter-badge.png)](https://mseep.ai/app/bloomfilter-labs-mcp-server-bloomfilter)
+
 # @bloomfilter/mcp-server
 
 <a href="https://glama.ai/mcp/servers/@BloomFilter-Labs/bloomfilter">
